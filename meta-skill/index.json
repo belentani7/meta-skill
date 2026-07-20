@@ -1,0 +1,244 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-07-19",
+  "author": "BELENTANI (Pedro Belentani) - IG @BELENTANI_ - Brasil/Barcelona",
+  "settings": {
+    "max_cost_per_task_usd": 0.5,
+    "token_budget_per_task": 15000,
+    "prefer_free_tier": true
+  },
+  "aliases": {
+    "premium_reasoning": "anthropic/claude-opus-4.8",
+    "standard_coding": "anthropic/claude-sonnet-5",
+    "budget_fast": "anthropic/claude-haiku-4.5",
+    "local_zero_token": "ollama/llama3"
+  },
+  "claude_code_aliases": {
+    "premium_reasoning": "opus",
+    "standard_coding": "sonnet",
+    "budget_fast": "haiku",
+    "local_zero_token": "none (solve without a model call)"
+  },
+  "alias_patterns": {
+    "premium_reasoning": [
+      "opus",
+      "gpt-5(?!.*mini)",
+      "gemini.*pro",
+      "grok-[0-9]+(?!.*mini)"
+    ],
+    "standard_coding": [
+      "sonnet",
+      "gpt-4(?!.*mini)",
+      "deepseek",
+      "qwen.*coder",
+      "devstral"
+    ],
+    "budget_fast": [
+      "haiku",
+      "(?<![a-z])mini",
+      "flash",
+      "(?<![a-z])lite",
+      "nano"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "security_audit",
+      "keywords": [
+        "seguridad",
+        "auditoria",
+        "owasp",
+        "vulnerabilidad",
+        "xss",
+        "csrf",
+        "pentest",
+        "cve",
+        "security",
+        "exploit"
+      ],
+      "complexity": 5,
+      "tier": "premium_reasoning",
+      "fallback": [
+        "standard_coding"
+      ],
+      "tools": [
+        "semgrep",
+        "bandit"
+      ],
+      "directive": "Act as a SAST auditor. Find OWASP Top 10 issues; report severity, impact, and fixed code."
+    },
+    {
+      "id": "frontend_ui",
+      "keywords": [
+        "react",
+        "css",
+        "tailwind",
+        "frontend",
+        "componente",
+        "ui",
+        "ux",
+        "responsive",
+        "animacion",
+        "html"
+      ],
+      "complexity": 3,
+      "tier": "standard_coding",
+      "fallback": [
+        "budget_fast"
+      ],
+      "tools": [
+        "tailwind",
+        "vite"
+      ],
+      "directive": "Build modular, accessible (a11y), responsive components with current standard syntax."
+    },
+    {
+      "id": "backend_api",
+      "keywords": [
+        "api",
+        "rest",
+        "graphql",
+        "backend",
+        "fastapi",
+        "express",
+        "jwt",
+        "oauth",
+        "endpoint",
+        "swagger"
+      ],
+      "complexity": 4,
+      "tier": "standard_coding",
+      "fallback": [
+        "premium_reasoning"
+      ],
+      "tools": [
+        "fastapi",
+        "prisma"
+      ],
+      "directive": "Generate idempotent CRUD APIs with robust error handling and OpenAPI docs."
+    },
+    {
+      "id": "devops_iac",
+      "keywords": [
+        "docker",
+        "kubernetes",
+        "terraform",
+        "aws",
+        "azure",
+        "pipeline",
+        "ci/cd",
+        "deploy",
+        "helm",
+        "actions"
+      ],
+      "complexity": 4,
+      "tier": "standard_coding",
+      "fallback": [
+        "budget_fast"
+      ],
+      "tools": [
+        "terraform",
+        "docker"
+      ],
+      "directive": "Generate idempotent IaC with state handling, drift detection, and rollback strategy."
+    },
+    {
+      "id": "data_etl",
+      "keywords": [
+        "etl",
+        "pipeline",
+        "datos",
+        "pandas",
+        "spark",
+        "airflow",
+        "dbt",
+        "sql",
+        "csv",
+        "transformacion"
+      ],
+      "complexity": 4,
+      "tier": "standard_coding",
+      "fallback": [
+        "budget_fast"
+      ],
+      "tools": [
+        "pandas",
+        "dbt"
+      ],
+      "directive": "Design idempotent pipelines with logging, error handling, and tests."
+    },
+    {
+      "id": "ml_rag",
+      "keywords": [
+        "rag",
+        "langchain",
+        "vector",
+        "embeddings",
+        "llm",
+        "chromadb",
+        "pinecone",
+        "ia",
+        "agente",
+        "mcp"
+      ],
+      "complexity": 5,
+      "tier": "premium_reasoning",
+      "fallback": [
+        "standard_coding"
+      ],
+      "tools": [
+        "langchain",
+        "chromadb"
+      ],
+      "directive": "Build RAG with strategic chunking, scalable vector DB, and retrieval ranking."
+    },
+    {
+      "id": "testing",
+      "keywords": [
+        "testing",
+        "test",
+        "pytest",
+        "playwright",
+        "unit",
+        "e2e",
+        "coverage",
+        "mock",
+        "prueba"
+      ],
+      "complexity": 2,
+      "tier": "budget_fast",
+      "fallback": [
+        "standard_coding"
+      ],
+      "tools": [
+        "pytest",
+        "playwright"
+      ],
+      "directive": "Write readable tests with >80% coverage; reusable fixtures and mocks."
+    },
+    {
+      "id": "quick_fix",
+      "keywords": [
+        "bug",
+        "error",
+        "typo",
+        "arreglar",
+        "fix",
+        "simple",
+        "rapido",
+        "hotfix",
+        "log"
+      ],
+      "complexity": 1,
+      "tier": "local_zero_token",
+      "fallback": [
+        "budget_fast"
+      ],
+      "tools": [],
+      "directive": "Apply the minimal patch. Do not refactor adjacent code."
+    }
+  ],
+  "models": {
+    "note": "Run scripts/update_models.py to fill this with live data from OpenRouter (public, no key)."
+  }
+}
