@@ -54,11 +54,11 @@ python -m unittest
 
 ## Limitaciones
 
-Esto es v1 y es experimental. La clasificacion es por keywords, no semantica. Claude activa el skill cuando la tarea coincide con lo que define, o si lo invocas directamente. Los precios que salen en index.json son orientativos, sacados de OpenRouter.
+Esto es v1 y es experimental. La clasificacion es por keywords, no semantica. El skill se activa cuando la tarea coincide con lo que define, o si lo invocas directamente. Los precios que salen en index.json son orientativos, sacados de OpenRouter.
 
 ## Autor
 
-**BELENTANI** — artista y cantante.
+**BELENTANI**, artista y cantante.
 Neurodivergente, sin etiquetas, lo vivo como un don.
 Hecho con alma brasileña desde Barcelona, mi casa.
 IG: [@BELENTANI_](https://instagram.com/belentani_)
