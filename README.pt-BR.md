@@ -26,8 +26,8 @@ Os nomes dos modelos vivem só no `index.json` (dados, não código): feito para
 ## Atualizar o catálogo de modelos
 
 ```bash
-python3 meta-skill/scripts/update_models.py            # atualiza index.json
-python3 meta-skill/scripts/update_models.py --validate # checagem offline (CI)
+python meta-skill/scripts/update_models.py            # atualiza index.json
+python meta-skill/scripts/update_models.py --validate # checagem offline (CI)
 ```
 
 Python puro (stdlib, zero dependências). Consulta a lista pública do OpenRouter (sem API key), escolhe o modelo de texto mais novo por tier via regex e reescreve só o `index.json` com **escrita atômica**. Sem internet, não toca em nada: segue funcionando offline. O tier local (`local_zero_token`) nunca se auto-atualiza.
@@ -46,8 +46,11 @@ tests/                       # unittest, stdlib
 ## Tests
 
 ```bash
-python -m unittest
+python -m unittest discover -s tests -v
+python meta-skill/scripts/update_models.py --validate
 ```
+
+O GitHub Actions executa ambos os comandos no Linux e Windows com Python 3.11 e 3.14.
 
 ## Limitações (honestas)
 

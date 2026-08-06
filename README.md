@@ -25,8 +25,8 @@ La idea principal es que los nombres de los modelos no estan hardcodeados en el 
 ## Actualizar los modelos
 
 ```bash
-python3 meta-skill/scripts/update_models.py
-python3 meta-skill/scripts/update_models.py --validate
+python meta-skill/scripts/update_models.py
+python meta-skill/scripts/update_models.py --validate
 ```
 
 Es Python puro, sin dependencias externas. Consulta la lista publica de OpenRouter (no necesitas API key), busca el modelo mas nuevo por cada tier usando regex, y reescribe `index.json` con escritura atomica. Si no hay internet, no toca nada y sigue funcionando con lo ultimo que tenia.
@@ -50,8 +50,11 @@ tests/
 ## Tests
 
 ```bash
-python -m unittest
+python -m unittest discover -s tests -v
+python meta-skill/scripts/update_models.py --validate
 ```
+
+GitHub Actions ejecuta ambos comandos en Linux y Windows con Python 3.11 y 3.14.
 
 ## Limitaciones
 

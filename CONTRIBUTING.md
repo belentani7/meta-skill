@@ -7,7 +7,7 @@ PRs welcome. Keep it simple:
 3. Before opening a PR, both must pass (stdlib only, no installs):
 
 ```bash
-python -m unittest
+python -m unittest discover -s tests -v
 python meta-skill/scripts/update_models.py --validate
 ```
 
