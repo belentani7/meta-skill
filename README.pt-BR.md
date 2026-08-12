@@ -46,7 +46,8 @@ tests/                       # unittest, stdlib
 ## Tests
 
 ```bash
-python -m unittest
+python -m unittest discover -s tests -p "test_*.py" -v
+python meta-skill/scripts/update_models.py --validate
 ```
 
 ## Limitações (honestas)
