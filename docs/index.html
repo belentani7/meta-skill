@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Universal router and token budget guard for Claude Code">
+  <meta name="description" content="Router local y evaluable para clasificar tareas, recomendar tiers y verificar presupuestos de IA.">
   <meta name="color-scheme" content="dark">
   <title>Meta-Skill · belentani7</title>
   <link rel="stylesheet" href="site.css">
@@ -18,51 +18,39 @@
     <section class="hero" aria-labelledby="titulo-principal">
       <p class="eyebrow">Router y control de presupuesto</p>
       <h1 id="titulo-principal">Meta-Skill</h1>
-      <p class="lede">Router universal que clasifica tareas, selecciona el modelo adecuado y protege el presupuesto de tokens.</p>
+      <p class="lede">Router local que clasifica tareas, recomienda un tier de modelo y señala límites de coste y tokens.</p>
       <div class="actions">
         <a class="button button-primary" href="https://github.com/belentani7/meta-skill" target="_blank" rel="noopener">Explorar repositorio <span aria-hidden="true">↗</span></a>
-        
         <button class="button button-secondary" type="button" data-copy-url="https://github.com/belentani7/meta-skill">Copiar enlace</button>
       </div>
       <p class="copy-status" role="status" aria-live="polite"></p>
     </section>
     <section class="facts" aria-label="Información del proyecto">
       <div><span>REPOSITORIO</span><strong>meta-skill</strong></div>
-      <div><span>TECNOLOGÍA</span><strong>Python</strong></div>
+      <div><span>TECNOLOGÍA</span><strong>Python · stdlib</strong></div>
       <div><span>PUBLICACIÓN</span><strong>GitHub Pages</strong></div>
     </section>
     <section class="overview" aria-labelledby="sobre-proyecto">
       <div class="section-heading"><p class="eyebrow">01 · CONTEXTO</p><h2 id="sobre-proyecto">Un punto de entrada claro.</h2></div>
-      <p>Esta página acompaña al repositorio como una portada pública, ligera y accesible. El código, la documentación detallada y las instrucciones de uso permanecen en el repositorio para mantener una única fuente de verdad.</p>
+      <p>Una herramienta offline que recomienda un arquetipo y un tier de modelo con señales explicables, estimaciones prudentes y abstención ante la duda. No ejecuta inferencias ni envía tus prompts a un proveedor; el presupuesto solo se verifica cuando hay tarifas exactas.</p>
     </section>
     <section class="highlights" aria-labelledby="puntos-clave">
       <div class="section-heading"><p class="eyebrow">02 · PUNTOS CLAVE</p><h2 id="puntos-clave">Qué encontrarás.</h2></div>
       <ol>
-        <li><span>01</span><p>Clasificación bilingüe</p></li>
-        <li><span>02</span><p>Selección por nivel</p></li>
-        <li><span>03</span><p>Actualización local de catálogo</p></li>
+        <li><span>01</span><p>12 arquetipos con vocabulario ES / PT / EN</p></li>
+        <li><span>02</span><p>Confianza heurística y abstención explicable</p></li>
+        <li><span>03</span><p>Estimación conservadora de tokens y coste</p></li>
+        <li><span>04</span><p>Tests offline y evaluación etiquetada</p></li>
       </ol>
     </section>
     <section class="next" aria-labelledby="siguiente-paso">
       <p class="eyebrow">03 · SIGUIENTE PASO</p>
-      <h2 id="siguiente-paso">Consulta la documentación y el código fuente.</h2>
-      <a class="text-link" href="https://github.com/belentani7/meta-skill" target="_blank" rel="noopener">Abrir meta-skill en GitHub <span aria-hidden="true">↗</span></a>
+      <h2 id="siguiente-paso">Prueba el router y revisa sus límites.</h2>
+      <a class="text-link" href="https://github.com/belentani7/meta-skill#probar-el-router" target="_blank" rel="noopener">Abrir guía de inicio <span aria-hidden="true">↗</span></a>
+      <p><a class="text-link" href="https://github.com/belentani7/meta-skill/blob/main/docs/ROUTING_RESEARCH.md" target="_blank" rel="noopener">Leer el estudio de enrutamiento <span aria-hidden="true">↗</span></a></p>
     </section>
   </main>
   <footer><span>© <span id="year"></span> belentani7</span><span>Diseñado para lectura rápida y acceso abierto.</span></footer>
   <script src="site.js"></script>
-<!-- FRONT-UPGRADE: Lenis + GSAP -->
-<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-<script>
-(function(){try{
-if(window.Lenis){var l=new Lenis({duration:1.1});var r=function(t){l.raf(t);requestAnimationFrame(r)};requestAnimationFrame(r);}
-if(window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
-document.querySelectorAll('section,h1,h2,.card,img').forEach(function(el){
-gsap.from(el,{opacity:0,y:26,duration:0.8,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 90%'}});
-});
-}}catch(e){}})();
-</script>
 </body>
 </html>
