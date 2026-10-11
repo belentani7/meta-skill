@@ -43,6 +43,8 @@ El evaluador calcula cobertura, accuracy, macro-F1, Brier y error de calibració
 
 ### Estimar ahorro con tu carga de trabajo
 
+**Estado: en desarrollo.** La herramienta es un estimador inicial, no una función de producción validada. Aún hacen falta tarifas verificadas, datos agregados representativos y una evaluación de calidad antes de interpretar sus cifras como ahorro real.
+
 `estimate_savings.py` compara la política de routing por tarea (incluidos los fallbacks configurados y el límite de coste por solicitud) con un baseline fijo (por defecto, `premium_reasoning`, sin fallback). Acepta **solo agregados**; no necesita ni guarda prompts. Estima coste como tokens promedio × número de solicitudes. Como el fallback depende de cada solicitud, los agregados no equivalen a reproducir el tráfico petición por petición. Ejemplo de estructura —los números son ilustrativos, no datos medidos—:
 
 ```json

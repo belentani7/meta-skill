@@ -37,6 +37,8 @@ O avaliador calcula cobertura, accuracy, macro-F1, Brier e erro de calibração 
 
 ### Estimar economia com a sua carga
 
+**Status: em desenvolvimento.** A ferramenta é um estimador inicial, não uma funcionalidade de produção validada. Ainda são necessários preços verificados, dados agregados representativos e avaliação de qualidade antes de interpretar os valores como economia real.
+
 `estimate_savings.py` compara a política de roteamento por tarefa (incluindo os fallbacks configurados e o limite de custo por solicitação) com um baseline fixo (`premium_reasoning` por padrão, sem fallback). Aceita apenas **dados agregados**; não precisa nem salva prompts. Estima o custo como tokens médios × número de solicitações. Como o fallback depende de cada solicitação, os agregados não reproduzem exatamente o tráfego solicitação por solicitação. Exemplo de estrutura — valores ilustrativos, não medidos:
 
 ```json
