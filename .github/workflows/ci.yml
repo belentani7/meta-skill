@@ -33,3 +33,6 @@ jobs:
 
       - name: Validate shipped index
         run: python meta-skill/scripts/update_models.py --validate
+
+      - name: Evaluate offline routing smoke set
+        run: python meta-skill/scripts/evaluate_router.py

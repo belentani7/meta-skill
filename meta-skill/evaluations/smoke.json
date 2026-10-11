@@ -1,0 +1,161 @@
+{
+  "description": "Handwritten, synthetic multilingual smoke examples for regression testing only; not a representative or statistically sampled production workload.",
+  "cases": [
+    {
+      "prompt": "Revisa la auditoría de seguridad y busca vulnerabilidades OWASP y XSS.",
+      "expected": "security_audit"
+    },
+    {
+      "prompt": "Run a security audit for CSRF, injection, and vulnerability paths.",
+      "expected": "security_audit"
+    },
+    {
+      "prompt": "Faça um pentest defensivo e corrija uma vulnerabilidade.",
+      "expected": "security_audit"
+    },
+    {
+      "prompt": "Build an accessible React component with responsive CSS and Tailwind.",
+      "expected": "frontend_ui"
+    },
+    {
+      "prompt": "Crea una interfaz responsive con animación y un sistema de diseño accesible.",
+      "expected": "frontend_ui"
+    },
+    {
+      "prompt": "Crie uma interface React com CSS acessível.",
+      "expected": "frontend_ui"
+    },
+    {
+      "prompt": "Implement an OAuth endpoint for a FastAPI REST API.",
+      "expected": "backend_api"
+    },
+    {
+      "prompt": "Add JWT authentication to an Express server route.",
+      "expected": "backend_api"
+    },
+    {
+      "prompt": "Crie uma API GraphQL com autenticação e endpoints em FastAPI.",
+      "expected": "backend_api"
+    },
+    {
+      "prompt": "Deploy a Docker service to AWS Kubernetes with Terraform and GitHub Actions.",
+      "expected": "devops_iac"
+    },
+    {
+      "prompt": "Configura CI/CD y Helm para desplegar la infraestructura en Azure.",
+      "expected": "devops_iac"
+    },
+    {
+      "prompt": "Monte uma pipeline Terraform de infraestrutura na AWS.",
+      "expected": "devops_iac"
+    },
+    {
+      "prompt": "Build a dbt ETL pipeline that transforms SQL and CSV data.",
+      "expected": "data_etl"
+    },
+    {
+      "prompt": "Analiza y limpia un conjunto de datos CSV usando pandas.",
+      "expected": "data_etl"
+    },
+    {
+      "prompt": "Crie uma pipeline de dados ETL no Spark e Airflow.",
+      "expected": "data_etl"
+    },
+    {
+      "prompt": "Build a RAG system using embeddings and a vector database in ChromaDB.",
+      "expected": "ml_rag"
+    },
+    {
+      "prompt": "Configura un agente MCP con LLM, LangChain y búsqueda vectorial.",
+      "expected": "ml_rag"
+    },
+    {
+      "prompt": "Use machine learning with retrieval and embeddings.",
+      "expected": "ml_rag"
+    },
+    {
+      "prompt": "Write deterministic unit tests in pytest with mocks and coverage.",
+      "expected": "testing"
+    },
+    {
+      "prompt": "Escribe pruebas E2E con Playwright y comprueba cobertura.",
+      "expected": "testing"
+    },
+    {
+      "prompt": "Escreva testes unitários e testes de integração.",
+      "expected": "testing"
+    },
+    {
+      "prompt": "Fix this typo in the configuration.",
+      "expected": "quick_fix"
+    },
+    {
+      "prompt": "Corrige una errata en este texto.",
+      "expected": "quick_fix"
+    },
+    {
+      "prompt": "Fix the whitespace typo in the README.",
+      "expected": "quick_fix"
+    },
+    {
+      "prompt": "Refactor this codebase and implement a small feature in the repository.",
+      "expected": "software_engineering"
+    },
+    {
+      "prompt": "Desarrolla una funcionalidad en este repositorio y programa un pequeño módulo.",
+      "expected": "software_engineering"
+    },
+    {
+      "prompt": "Faça uma revisão de código no software e ajuste a funcionalidade.",
+      "expected": "software_engineering"
+    },
+    {
+      "prompt": "Investiga tendencias recientes y compara fuentes verificables.",
+      "expected": "research_analysis"
+    },
+    {
+      "prompt": "Research current benchmarks, compare evidence, and cite sources.",
+      "expected": "research_analysis"
+    },
+    {
+      "prompt": "Faça uma pesquisa sobre tendências e referências atuais.",
+      "expected": "research_analysis"
+    },
+    {
+      "prompt": "Translate this paragraph to Portuguese and summarize it in English.",
+      "expected": "writing_translation"
+    },
+    {
+      "prompt": "Redacta la documentación y revisa la corrección de estilo.",
+      "expected": "writing_translation"
+    },
+    {
+      "prompt": "Traduza este texto e faça um resumo para o público.",
+      "expected": "writing_translation"
+    },
+    {
+      "prompt": "Solve this probability problem and prove the theorem step by step.",
+      "expected": "math_reasoning"
+    },
+    {
+      "prompt": "Explica el cálculo de probabilidades y justifica el razonamiento lógico.",
+      "expected": "math_reasoning"
+    },
+    {
+      "prompt": "Resolva este problema de álgebra e calcule a probabilidade.",
+      "expected": "math_reasoning"
+    },
+    {
+      "prompt": "Set up a shared pipeline.",
+      "expected": null
+    },
+    {
+      "prompt": "Can you make this better for our team?",
+      "expected": null
+    },
+    {
+      "prompt": "The rapid plan is available.",
+      "expected": null
+    }
+  ]
+}
