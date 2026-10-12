@@ -1,0 +1,10 @@
+{"id":"synthetic-001","label":"testing","confidence":0.91,"probabilities":{"frontend":0.02,"research":0.02,"security":0.03,"testing":0.93}}
+{"id":"synthetic-002","label":"security","confidence":0.88,"probabilities":{"frontend":0.02,"research":0.03,"security":0.90,"testing":0.05}}
+{"id":"synthetic-003","label":"frontend","confidence":0.84,"probabilities":{"frontend":0.87,"research":0.04,"security":0.02,"testing":0.07}}
+{"id":"synthetic-004","label":"research","confidence":0.71,"probabilities":{"frontend":0.06,"research":0.75,"security":0.08,"testing":0.11}}
+{"id":"synthetic-005","label":"testing","confidence":0.79,"probabilities":{"frontend":0.04,"research":0.05,"security":0.08,"testing":0.83}}
+{"id":"synthetic-006","label":"abstain","confidence":0.42,"probabilities":{"frontend":0.14,"research":0.18,"security":0.39,"testing":0.29}}
+{"id":"synthetic-007","label":"frontend","confidence":0.86,"probabilities":{"frontend":0.88,"research":0.03,"security":0.02,"testing":0.07}}
+{"id":"synthetic-008","label":"research","confidence":0.68,"probabilities":{"frontend":0.08,"research":0.72,"security":0.08,"testing":0.12}}
+{"id":"synthetic-009","label":"security","confidence":0.55,"probabilities":{"frontend":0.12,"research":0.13,"security":0.58,"testing":0.17}}
+{"id":"synthetic-010","label":"security","confidence":0.77,"probabilities":{"frontend":0.04,"research":0.05,"security":0.80,"testing":0.11}}
