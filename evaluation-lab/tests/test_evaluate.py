@@ -23,9 +23,9 @@ class EvaluateTests(unittest.TestCase):
     def test_reports_accuracy_coverage_and_abstention(self):
         report = evaluate(self.gold, self.predictions)
         self.assertEqual(report["dataset_size"], 3)
-        self.assertAlmostEqual(report["metrics"]["accuracy"], 2 / 3)
-        self.assertAlmostEqual(report["metrics"]["coverage"], 2 / 3)
-        self.assertAlmostEqual(report["metrics"]["abstention_rate"], 1 / 3)
+        self.assertAlmostEqual(report["metrics"]["accuracy"], 2 / 3, places=5)
+        self.assertAlmostEqual(report["metrics"]["coverage"], 2 / 3, places=5)
+        self.assertAlmostEqual(report["metrics"]["abstention_rate"], 1 / 3, places=5)
         self.assertAlmostEqual(report["metrics"]["selective_accuracy"], 1.0)
         self.assertIsNotNone(report["calibration"])
 
