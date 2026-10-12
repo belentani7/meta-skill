@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from route import INDEX, estimate_model_cost, model_record_for_tier
+from route import INDEX, estimate_model_cost, model_context_limit, model_record_for_tier
 
 DEFAULT_BASELINE = "premium_reasoning"
 NO_MODEL_TIERS = {"local_zero_token"}
@@ -53,11 +53,7 @@ def _cost_for(index: dict[str, Any], tier: str,
         return {"model": model, "cost": None, "status": "price_unknown",
                 "context_status": "context_unknown"}
 
-    context = record.get("context")
-    try:
-        context_tokens = int(context)
-    except (TypeError, ValueError):
-        context_tokens = 0
+    context_tokens = model_context_limit(record) or 0
     average_total = input_tokens + output_tokens
     observed_max_total = None
     if max_input_tokens is not None and max_output_tokens is not None:
@@ -119,7 +115,7 @@ def _select_task_route(index: dict[str, Any], task: dict[str, Any],
         if tier not in index.get("aliases", {}):
             continue
         candidate = _cost_for(index, tier, input_tokens, output_tokens, max_input, max_output)
-        if _context_problem(candidate):
+        if _context_problem(candidate) or candidate["context_status"] == "context_unknown":
             continue
         candidate_cost = candidate["cost"]
         if candidate_cost is None and (max_cost is not None or not context_limited):

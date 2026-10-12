@@ -108,14 +108,23 @@ def estimate_model_cost(record: dict[str, Any] | None,
     return input_rate * input_tokens / 1000 + output_rate * output_tokens / 1000
 
 
-def model_context_fits(record: dict[str, Any] | None, total_tokens: int) -> bool:
-    if not record or record.get("context") is None:
-        return True
+def model_context_limit(record: dict[str, Any] | None) -> int | None:
+    """Return a positive context limit only when the catalog verifies one."""
+    value = record.get("context") if record else None
+    if value is None or isinstance(value, bool):
+        return None
     try:
-        context = int(record["context"])
-    except (TypeError, ValueError):
-        return True
-    return context <= 0 or total_tokens <= context
+        context = int(value)
+    except (TypeError, ValueError, OverflowError):
+        return None
+    if isinstance(value, float) and value != context:
+        return None
+    return context if context > 0 else None
+
+
+def model_context_fits(record: dict[str, Any] | None, total_tokens: int) -> bool:
+    context = model_context_limit(record)
+    return context is None or total_tokens <= context
 
 
 def _is_no_model_call(tier: str, model: str | None) -> bool:
@@ -125,13 +134,15 @@ def _is_no_model_call(tier: str, model: str | None) -> bool:
 def _cost_for_tier(index: dict[str, Any], tier: str,
                     input_tokens: int, output_tokens: int,
                     total_tokens: int, runtime_model: str | None,
-                    runtime: str) -> tuple[float | None, bool]:
+                    runtime: str, *, require_verified_context: bool = False) -> tuple[float | None, bool]:
     if _is_no_model_call(tier, runtime_model):
         return 0.0, True
     # A vendor/model alias is not proof that its native CLI uses OpenRouter rates.
     if runtime != "generic" or runtime_model != index.get("aliases", {}).get(tier):
         return None, True
     record = model_record_for_tier(index, tier)
+    if require_verified_context and model_context_limit(record) is None:
+        return None, False
     if not model_context_fits(record, total_tokens):
         return None, False
     return estimate_model_cost(record, input_tokens, output_tokens), True
@@ -271,7 +282,8 @@ def route_prompt(prompt: str, index: dict[str, Any], *,
                 continue
             model = _model_for_tier(index, tier, runtime)
             alternative_cost, fits = _cost_for_tier(
-                index, tier, input_estimate, output_estimate, total_estimate, model, runtime)
+                index, tier, input_estimate, output_estimate, total_estimate, model, runtime,
+                require_verified_context=True)
             within_budget = (max_cost is None or
                              (alternative_cost is not None and alternative_cost <= max_cost))
             if fits and within_budget:
@@ -302,7 +314,8 @@ def route_prompt(prompt: str, index: dict[str, Any], *,
                 continue
             model = _model_for_tier(index, tier, runtime)
             alternative_cost, fits = _cost_for_tier(
-                index, tier, input_estimate, output_estimate, total_estimate, model, runtime)
+                index, tier, input_estimate, output_estimate, total_estimate, model, runtime,
+                require_verified_context=True)
             if fits and alternative_cost is not None and alternative_cost <= max_cost:
                 affordable.append((alternative_cost, position, tier, model))
         if affordable:
