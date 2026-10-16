@@ -1,0 +1,30 @@
+name: Evaluation Lab
+
+on:
+  push:
+    paths:
+      - "evaluation-lab/**"
+      - ".github/workflows/evaluation-lab.yml"
+  pull_request:
+    paths:
+      - "evaluation-lab/**"
+      - ".github/workflows/evaluation-lab.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Unit tests
+        run: python -m unittest discover -s evaluation-lab/tests -v
+      - name: Validate synthetic fixture and report generation
+        run: |
+          python evaluation-lab/evaluate.py             --gold evaluation-lab/fixtures/gold.jsonl             --predictions evaluation-lab/fixtures/predictions.jsonl             --out /tmp/routing-evaluation.json             --markdown /tmp/routing-evaluation.md
+          python -c "import json; r=json.load(open('/tmp/routing-evaluation.json')); assert r['dataset_size'] == 10; assert r['calibration'] is not None"

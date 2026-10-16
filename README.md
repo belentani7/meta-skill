@@ -13,17 +13,9 @@ No ejecuta inferencias ni envía el prompt a un proveedor. Es una recomendación
 ### Probar el router
 
 ```bash
-# Recomendación legible
 python3 meta-skill/scripts/route.py "Build a responsive React component"
-
-# Salida JSON; alias de Claude Code
 python3 meta-skill/scripts/route.py --runtime claude_code --json "Write pytest tests"
-
-# Leer el prompt desde stdin (no se incluye en el resultado)
-printf '%s' "Audita esta API por vulnerabilidades OWASP" \
-  | python3 meta-skill/scripts/route.py --json
-
-# Aplicar un límite alternativo en USD
+printf '%s' "Audita esta API por vulnerabilidades OWASP" | python3 meta-skill/scripts/route.py --json
 python3 meta-skill/scripts/route.py --budget 0.10 "Investiga tendencias y cita fuentes"
 ```
 
@@ -39,37 +31,27 @@ python meta-skill/scripts/update_models.py --validate
 python meta-skill/scripts/evaluate_router.py
 ```
 
-El evaluador calcula cobertura, accuracy, macro-F1, Brier y error de calibración (ECE) sobre un archivo etiquetado. `meta-skill/evaluations/smoke.json` contiene ejemplos sintéticos, escritos a mano para encontrar regresiones; **no** es una muestra de tráfico real ni permite afirmar precisión, probabilidad de éxito o ahorro económico en producción. Para medir rendimiento real se necesitan etiquetas representativas, consentimiento, una partición de prueba independiente y precios/calidad observados.
+El evaluador existente calcula métricas sobre ejemplos etiquetados. Los ejemplos sintéticos no representan tráfico real ni permiten afirmar precisión, probabilidad de éxito o ahorro económico en producción. Para medir rendimiento real se necesitan etiquetas representativas, consentimiento, una partición de prueba independiente y precios/calidad observados.
+
+## Evaluation Lab
+
+El directorio [evaluation-lab](evaluation-lab/README.md) añade un harness independiente y sin dependencias para evaluar routers mediante JSONL etiquetado. Informa accuracy, macro-F1, métricas por clase, matriz de confusión, cobertura, accuracy selectiva y abstención; calcula Brier y ECE solo cuando se entregan vectores de probabilidad completos. Rechaza IDs duplicados, predicciones ausentes, clases desconocidas y datos de calibración incompletos.
+
+```bash
+python3 evaluation-lab/evaluate.py \
+  --gold evaluation-lab/fixtures/gold.jsonl \
+  --predictions evaluation-lab/fixtures/predictions.jsonl \
+  --out /tmp/report.json --markdown /tmp/report.md
+python3 -m unittest discover -s evaluation-lab/tests -v
+```
+
+**Importante:** las fixtures son sintéticas y solo demuestran el contrato del evaluador. No son resultados medidos de Meta-Skill ni de ningún modelo. Consulta [la metodología](evaluation-lab/METHODOLOGY.md) antes de usar métricas para decisiones de release.
 
 ### Estimar ahorro con tu carga de trabajo
 
 **Estado: en desarrollo.** La herramienta es un estimador inicial, no una función de producción validada. Aún hacen falta tarifas verificadas, datos agregados representativos y una evaluación de calidad antes de interpretar sus cifras como ahorro real.
 
-`estimate_savings.py` compara la política de routing por tarea (incluidos los fallbacks configurados y el límite de coste por solicitud) con un baseline fijo (por defecto, `premium_reasoning`, sin fallback). Acepta **solo agregados**; no necesita ni guarda prompts. Estima coste como tokens promedio × número de solicitudes. Como el fallback depende de cada solicitud, los agregados no equivalen a reproducir el tráfico petición por petición. Ejemplo de estructura —los números son ilustrativos, no datos medidos—:
-
-```json
-{
-  "observations": [
-    {
-      "task_id": "testing",
-      "requests": 1,
-      "avg_input_tokens": 500,
-      "avg_output_tokens": 200,
-      "max_input_tokens": 800,
-      "max_output_tokens": 400
-    }
-  ]
-}
-```
-
-Guarda tu agregado fuera del repositorio y ejecuta:
-
-```bash
-python3 meta-skill/scripts/estimate_savings.py \
-  --workload /ruta/privada/workload.json --baseline-tier premium_reasoning --json
-```
-
-Puedes probar otro límite con `--max-cost 0.10` (USD por solicitud); si se omite, se usa el del índice. Si tienes un índice privado con precios, pásalo con `--index /ruta/privada/index-con-precios.json`; los registros deben coincidir exactamente con el alias activo y contener tarifas de entrada y salida por 1.000 tokens. No hace falta guardar ese índice ni el workload en este repositorio. La herramienta marca como desconocido cualquier coste que no pueda calcular. Los campos `max_*` ayudan a detectar si las solicitudes observadas caben en el contexto; su suma es conservadora y puede combinar máximos de solicitudes distintas. Sin ellos solo se comprueba el promedio y queda incertidumbre sobre los extremos. Una cifra de ahorro negativa representa un aumento estimado de gasto. El cálculo **no mide calidad** y no es una factura ni una promesa de ahorro. El índice incluido todavía no contiene tarifas por modelo, así que no mostrará ahorro numérico hasta que cargues precios que coincidan con los alias activos y aportes agregados reales.
+`estimate_savings.py` compara la política de routing por tarea (incluidos los fallbacks configurados y el límite de coste por solicitud) con un baseline fijo. Acepta **solo agregados**; no necesita ni guarda prompts. Estima coste como tokens promedio × número de solicitudes. Como el fallback depende de cada solicitud, los agregados no equivalen a reproducir el tráfico petición por petición. La herramienta marca como desconocido cualquier coste que no pueda calcular. El cálculo **no mide calidad** y no es una factura ni una promesa de ahorro.
 
 ## Qué cubre
 
@@ -79,7 +61,7 @@ Los `fallback` son alternativas declaradas, no una promesa de que un tier sea m�
 
 ## Instalación de la skill
 
-- **Claude Code:** copia la carpeta `meta-skill/` a `~/.claude/skills/` (Windows: `%USERPROFILE%\.claude\skills\`).
+- **Claude Code:** copia la carpeta `meta-skill/` a `~/.claude/skills/` (Windows: `%USERPROFILE%\\.claude\\skills\\`).
 - **Claude.ai / Cowork:** sube la carpeta desde Settings → Capabilities, siguiendo el flujo disponible en tu cuenta.
 
 El CLI de recomendación se ejecuta aparte con Python 3.11 o posterior y solo biblioteca estándar. No necesitas instalar paquetes.
@@ -87,36 +69,19 @@ El CLI de recomendación se ejecuta aparte con Python 3.11 o posterior y solo bi
 ## Actualizar el catálogo de modelos
 
 ```bash
-python3 meta-skill/scripts/update_models.py --validate  # local, no red
-python3 meta-skill/scripts/update_models.py --dry-run          # vista previa
-python3 meta-skill/scripts/update_models.py                    # descubre candidatos
-python3 meta-skill/scripts/update_models.py --promote-newest   # promoción explícita y no evaluada
+python3 meta-skill/scripts/update_models.py --validate
+python3 meta-skill/scripts/update_models.py --dry-run
+python3 meta-skill/scripts/update_models.py
+python3 meta-skill/scripts/update_models.py --promote-newest
 ```
 
-El actualizador lee la lista pública de modelos de OpenRouter, normalmente sin API key; si tu acceso requiere autenticación, usa opcionalmente `OPENROUTER_API_KEY` desde el entorno (nunca se guarda en el índice). Filtra modelos con salida de texto, mantiene por separado precio de entrada y salida, conserva el último dato si no hay coincidencia y escribe de forma atómica. **Por defecto no cambia los alias seleccionados**: que un modelo sea nuevo no demuestra que sea mejor. Tras evaluar una alternativa, actualiza manualmente `aliases`; `--promote-newest` es un atajo optativo no basado en calidad. `local_zero_token` nunca se autoactualiza. Consulta [el estudio y sus fuentes](docs/ROUTING_RESEARCH.md) antes de interpretar métricas o tendencias.
+El actualizador lee la lista pública de modelos de OpenRouter, normalmente sin API key; si tu acceso requiere autenticación, usa opcionalmente `OPENROUTER_API_KEY` desde el entorno (nunca se guarda en el índice). **Por defecto no cambia los alias seleccionados**: que un modelo sea nuevo no demuestra que sea mejor. Consulta [el estudio y sus fuentes](docs/ROUTING_RESEARCH.md) antes de interpretar métricas o tendencias.
 
 El catálogo es una referencia, no facturación: no incorpora necesariamente caché, imágenes, reintentos, descuentos, límites del proveedor ni la tarifa real de una CLI.
 
-## Estructura
-
-```text
-meta-skill/
-  SKILL.md                         # protocolo neutral respecto a marcas/versiones
-  index.json                       # tareas, alias, umbrales y ajustes
-  scripts/route.py                 # router CLI offline
-  scripts/evaluate_router.py       # métricas reproducibles con casos etiquetados
-  scripts/estimate_savings.py      # comparación de coste con workload agregado
-  scripts/update_models.py         # actualizador de catálogo, stdlib
-  evaluations/smoke.json           # casos sintéticos; no datos de producción
-tests/
-  test_meta_skill.py               # índice y actualizador
-  test_router.py                   # clasificación, privacidad, límites y CLI
-.github/workflows/ci.yml            # CI multiplataforma
-```
-
 ## Autor
 
-**BELENTANI**, artista y cantante. Neurodivergente, sin etiquetas: lo vivo como un don. Hecho con alma brasileña desde Barcelona, mi casa.
+**BELENTANI**, artista y cantante. Hecho con alma brasileña desde Barcelona.
 
 IG: [@BELENTANI_](https://instagram.com/belentani_)
 
