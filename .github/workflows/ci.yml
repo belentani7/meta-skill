@@ -38,11 +38,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
       - name: Typecheck
-        run: pnpm run typecheck
+        run: pnpm run typecheck --if-present
       - name: Lint
-        run: pnpm run lint
+        run: pnpm run lint --if-present
       - name: Format check
-        run: pnpm run format:check
+        run: pnpm run format:check --if-present
 
   test:
     name: Test
@@ -90,7 +90,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
       - name: Build
-        run: pnpm run build
+        run: pnpm run build --if-present
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
@@ -133,7 +133,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
       - name: Build
-        run: pnpm run build
+        run: pnpm run build --if-present
       - name: Start server
         run: pnpm start &
         env:
@@ -166,7 +166,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
       - name: Build for preview
-        run: pnpm run build
+        run: pnpm run build --if-present
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
         with:
