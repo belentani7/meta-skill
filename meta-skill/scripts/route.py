@@ -165,6 +165,8 @@ def route_prompt(prompt: str, index: dict[str, Any], *,
         raise ValueError("index aliases must be an object")
     if any(not isinstance(task.get("keywords"), list) for task in tasks):
         raise ValueError("every task must have a keywords list")
+    if any(any(not isinstance(word, str) for word in task["keywords"]) for task in tasks):
+        raise ValueError("task keywords must be strings")
     if not isinstance(index.get("models", {}), dict):
         raise ValueError("index models must be an object")
     settings = index.get("settings", {})
