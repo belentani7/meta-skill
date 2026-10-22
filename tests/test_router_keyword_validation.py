@@ -14,5 +14,10 @@ class RouterKeywordValidationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             route.route_prompt('test prompt', index)
 
+    def test_accepts_valid_keyword_types(self):
+        index = {'tasks': [{'id': 'test', 'tier': 'standard_coding', 'keywords': ['test']}], 'aliases': {'standard_coding': 'test-model'}, 'models': {}, 'settings': {'minimum_route_confidence': 0, 'minimum_route_margin': 0}}
+        result = route.route_prompt('test prompt', index)
+        self.assertEqual(result['task_id'], 'test')
+
 if __name__ == '__main__':
     unittest.main()
