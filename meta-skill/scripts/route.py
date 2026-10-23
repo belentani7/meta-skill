@@ -248,11 +248,15 @@ def route_prompt(prompt: str, index: dict[str, Any], *,
     chosen_model = _model_for_tier(index, chosen_tier, runtime)
     no_model_request = _is_no_model_call(chosen_tier, chosen_model)
     token_limit = int(settings.get("token_budget_per_task", 15000))
+    if token_limit < 1:
+        raise ValueError("settings.token_budget_per_task must be positive")
     if no_model_request:
         input_estimate = output_estimate = total_estimate = 0
     else:
         input_estimate = max(1, math.ceil(len(prompt.strip()) / chars_per_token))
         requested_output_tokens = int(settings.get("estimated_output_tokens", 1000))
+        if requested_output_tokens < 1:
+            raise ValueError("settings.estimated_output_tokens must be positive")
         output_estimate = min(requested_output_tokens, max(0, token_limit - input_estimate))
         total_estimate = input_estimate + output_estimate
     configured_budget = settings.get("max_cost_per_task_usd")
