@@ -7,6 +7,7 @@ const script = fs.readFileSync(require('node:path').join(__dirname, '..', 'docs'
 function setup(clipboard) {
   const state = { handler: null, selected: false, focused: false, children: [] };
   const button = {
+    disabled: false,
     dataset: { copyUrl: 'https://example.invalid/private' },
     addEventListener(event, fn) {
       assert.equal(event, 'click');
@@ -35,7 +36,7 @@ function setup(clipboard) {
     }
   };
   vm.runInNewContext(script, { document, navigator: { clipboard }, Date });
-  return { state, status, year };
+  return { state, status, year, button };
 }
 
 test('copies URL and announces success', async () => {
@@ -63,4 +64,28 @@ test('falls back when clipboard permission is denied', async () => {
   const { state } = setup({ writeText: async () => { throw new Error('denied'); } });
   await state.handler();
   assert.equal(state.children[0].children[0].className, 'copy-fallback');
+});
+
+
+test('blocks duplicate clipboard requests until the first completes', async () => {
+  let resolveCopy;
+  let calls = 0;
+  const { state, button } = setup({ writeText: () => {
+    calls++;
+    return new Promise(resolve => { resolveCopy = resolve; });
+  } });
+  const first = state.handler();
+  assert.equal(button.disabled, true);
+  await state.handler();
+  assert.equal(calls, 1);
+  resolveCopy();
+  await first;
+  assert.equal(button.disabled, false);
+});
+
+test('restores button after clipboard permission failure', async () => {
+  const { state, button } = setup({ writeText: async () => { throw new Error('denied'); } });
+  await state.handler();
+  assert.equal(button.disabled, false);
+  assert.equal(state.focused, true);
 });
