@@ -4,7 +4,11 @@
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
   if (!button || !status) return;
+  let pending = false;
   button.addEventListener('click', async () => {
+    if (pending) return;
+    pending = true;
+    button.disabled = true;
     const url = button.dataset.copyUrl;
     status.replaceChildren();
     try {
@@ -23,6 +27,9 @@
       status.append(label);
       field.focus();
       field.select();
+    } finally {
+      pending = false;
+      button.disabled = false;
     }
   });
 })();
