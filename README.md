@@ -3,6 +3,8 @@
 ![License: MIT](https://img.shields.io/badge/license-MIT-green) ![Python: stdlib only](https://img.shields.io/badge/python-stdlib_only-blue) ![Dependencies: 0](https://img.shields.io/badge/dependencies-0-brightgreen)
 
 > Skill y router local, explicable y sin dependencias para recomendar tareas, modelos y límites de coste.
+>
+> Idiomas: [Português (BR)](README.pt-BR.md) · Español
 
 ## Qué aporta
 
@@ -64,7 +66,7 @@ Los `fallback` son alternativas declaradas, no una promesa de que un tier sea m�
 - **Claude Code:** copia la carpeta `meta-skill/` a `~/.claude/skills/` (Windows: `%USERPROFILE%\\.claude\\skills\\`).
 - **Claude.ai / Cowork:** sube la carpeta desde Settings → Capabilities, siguiendo el flujo disponible en tu cuenta.
 
-El CLI de recomendación se ejecuta aparte con Python 3.11 o posterior y solo biblioteca estándar. No necesitas instalar paquetes.
+El CLI de recomendación se ejecuta aparte con Python 3.11 o posterior y solo biblioteca estándar. No necesitas instalar paquetes. (En Windows, `python3` puede no estar en el PATH: usa `python` en su lugar.)
 
 ## Actualizar el catálogo de modelos
 
