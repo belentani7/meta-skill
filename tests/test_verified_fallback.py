@@ -4,8 +4,8 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'meta-skill' / 'scripts'))
-from route import route_prompt
 from estimate_savings import estimate_savings
+from route import route_prompt
 
 
 def catalog(primary_context=10000, fallback_context=None):

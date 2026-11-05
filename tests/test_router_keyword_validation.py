@@ -1,7 +1,7 @@
 """Regression tests for malformed router keyword configuration."""
+import importlib.util
 import unittest
 from pathlib import Path
-import importlib.util
 
 MODULE = Path(__file__).resolve().parents[1] / 'meta-skill' / 'scripts' / 'route.py'
 spec = importlib.util.spec_from_file_location('meta_skill_route', MODULE)

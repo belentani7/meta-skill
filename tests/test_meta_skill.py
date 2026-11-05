@@ -40,7 +40,7 @@ class TestIndex(unittest.TestCase):
     def test_budget_aliases_do_not_capture_other_model_families(self):
         import re
         matches = lambda tier, model_id: any(
-            re.search(pattern, model_id, re.I)
+            re.search(pattern, model_id, re.IGNORECASE)
             for pattern in IDX["alias_patterns"].get(tier, [])
         )
         self.assertFalse(matches("budget_fast", "google/gemini-3.0-pro"))

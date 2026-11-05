@@ -13,8 +13,8 @@ SCRIPTS = ROOT / "meta-skill" / "scripts"
 INDEX = json.loads((ROOT / "meta-skill" / "index.json").read_text(encoding="utf-8"))
 
 sys.path.insert(0, str(SCRIPTS))
-from route import route_prompt  # noqa: E402
-from estimate_savings import estimate_savings  # noqa: E402
+from estimate_savings import estimate_savings
+from route import route_prompt
 
 
 def load_evaluator():
