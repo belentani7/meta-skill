@@ -1,0 +1,710 @@
+{
+  "schema_version": 1,
+  "source": "GitHub connector repository search",
+  "snapshot_date": "2026-11-08",
+  "count": 117,
+  "repositories": [
+    {
+      "name": "belentani7/gpu-cost-optimizer",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/CARQUIDEC",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-docs",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "duck"
+    },
+    {
+      "name": "belentani7/racoglass",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-platform",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/noiacore-lab-consciousness",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/ivy-la-vie",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani.es",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/forja-enterprise",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/presupuestador-fotografos-001",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/terratrack-isr",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/assurance-pvcu",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/premium-effects-registry",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/pedro-belentani-blog-neural",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/judas-experience-unificado",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belent-cad",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/NEUROMARKETING-BRANDING-CIENTIFICO",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/hbo-noir-icons",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-forge",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/erosbot-whatsapp",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/noiacore-private",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/meta-skill",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/michelle-relayze-web",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/xp",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/edu-open-data",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/cli-that-thing",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/eau-noire",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "master"
+    },
+    {
+      "name": "belentani7/aion-unified",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/skills-registry",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-python-template",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/fazluiz3d-ecosystem",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "master"
+    },
+    {
+      "name": "belentani7/firefly-studio-web",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/catalonia-booking",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-gateway",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/open-manus",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani.new",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "duck"
+    },
+    {
+      "name": "belentani7/qr-pro-enterprise",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/git-autoheal",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/neural-git-tui",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/PsychoDecode-AI",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/nexus-chat",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/heyduck-rebuild",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/open-school-private",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/trama-trans-bcn",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/ia-creativa-lab",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/cinematic-prompt-formatter",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/omniagent",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/rh-fiscal-ultra-web",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/opendesign",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/arte-que-veste",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/saas-plasma",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/safe-exec",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/github-ai-terminal",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/SoulX-Singer",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/lumena",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "duck"
+    },
+    {
+      "name": "belentani7/qwen-input-cache-max-context",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/llm-vfx-orchestrator",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/Belentanislide",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/duck-ecosystem-private",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/fuera-del-relato",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/ace-step-ui",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/mimo_patch",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/mentorai-windows",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "belentani7/music-os-pedro-belentani",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "master"
+    },
+    {
+      "name": "belentani7/webcam-audio-visualizer",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/ManosAbiertas",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/ai-coding-workspace",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "belentani7/entrenador-jorge-bcn",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/temporal-artifact-detector",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/keyrotor",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani7",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/workflow-orchestrator",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/sonix-elite-ai-enterprise",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-visual-engine",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/vertical-content-orchestrator",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-omni-industrial",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "master"
+    },
+    {
+      "name": "belentani7/belentani-portfolio",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/agent-linux",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/cuidar-conecta-marcia",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/pbr-validator",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/PRIVATE-VOICE-LAB-2026-08-08",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/elracodepatricia-backend",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/nataliamarinho",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/noiacore-model-guard",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-design-system",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "duck"
+    },
+    {
+      "name": "belentani7/nexus-os",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/heyduck",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/ocr-legal-apex",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-java-platform",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/agy-cli",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/agentguard",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/noir-informatica-privada-barcelona",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-atlas",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-audio-masters-privados",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/el-raco-nuevo",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/bpmtoms",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/omniscraper",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/tender-words-connect",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/premium-factory-api",
+      "visibility": "public",
+      "archived": true,
+      "default_branch": "master"
+    },
+    {
+      "name": "belentani7/secure-t",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani7.github.io",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/sabons-alejandra-site",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/cassandra-complex",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/rotalog",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-webs-historicas",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/agentbox",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/neon",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/Steven-renovation",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/comfyui-json-compiler",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/p30pro-camera",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/ctg-psicologia-next",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-local",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/el-coste-de-descifrar",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "master"
+    },
+    {
+      "name": "belentani7/system-one-unified",
+      "visibility": "private",
+      "archived": false,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/belentani-mcp-servers",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "duck"
+    },
+    {
+      "name": "belentani7/agent-skills",
+      "visibility": "private",
+      "archived": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "belentani7/Belentani.cv-ai",
+      "visibility": "public",
+      "archived": false,
+      "default_branch": "main"
+    }
+  ]
+}
