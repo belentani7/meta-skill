@@ -10,7 +10,9 @@ jobs:
   gitleaks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
@@ -19,7 +21,9 @@ jobs:
   conflict-markers:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - name: Scan conflict markers
         run: |
           if git grep -E '^(<<<<<<< |=======$|>>>>>>> )' -- '*.:("*' ; then
