@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="meta-skill - Producto completo con hero shader y animaciones">
-  <title>Meta Skill</title>
+  <meta name="description" content="Meta Skill Producto completo con home hero, shader WebGL animado, y stack moderno listo para producción.">
+  <title>Meta Skill · Meta-Skill · meta-herramienta para crear skills</title>
   <link rel="theme-color" content="#6366f1">
   <style>/* Hero Shader */
 :root {
@@ -175,8 +175,16 @@ footer {
   section { padding: 2rem 1rem; }
 }
 </style>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meta Skill · Meta-Skill · meta-herramienta para crear skills">
+<meta property="og:description" content="Meta Skill Producto completo con home hero, shader WebGL animado, y stack moderno listo para producción.">
+<meta property="og:image" content="brand/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
+<main>
+
   <section class="hero">
     <div class="hero-canvas"></div>
     <div class="hero-overlay">
@@ -199,7 +207,8 @@ footer {
       <li>Responsive Design</li>
     </ul>
   </section>
-  <footer><p>© 2026 Meta Skill - Parte del ecosistema Belentani</p></footer>
+  </main>
+<footer><p>© 2026 Meta Skill - Parte del ecosistema Belentani</p></footer>
 /* Hero Shader WebGL */
 (function() {
   const canvas = document.createElement('canvas');
@@ -241,5 +250,6 @@ footer {
   function render(time) { gl.uniform1f(tl, time * 0.001); gl.uniform2f(ml, mouse.x, mouse.y); gl.drawArrays(gl.TRIANGLES, 0, 6); requestAnimationFrame(render); }
   requestAnimationFrame(render);
 })();
+<!-- page-fix:1 -->
 </body>
 </html>

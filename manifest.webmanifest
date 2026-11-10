@@ -1,0 +1,17 @@
+{
+  "name": "Meta-Skill",
+  "short_name": "Meta-Skill",
+  "description": "meta-herramienta para crear skills",
+  "lang": "es",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f1419",
+  "theme_color": "#2eb3ee",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

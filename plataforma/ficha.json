@@ -1,0 +1,76 @@
+{
+  "esquema": "repo-forge/ficha/1",
+  "nombre": "meta-skill",
+  "remoto": "https://github.com/belentani7/meta-skill",
+  "arquetipo": "web-static",
+  "stack": "Python",
+  "modelo": "meta-herramienta para crear skills",
+  "publico": "autores de skills",
+  "techo": "el compilador de skills: de una idea a una skill con contrato, pruebas y evaluación de activación",
+  "modulos": [
+    "Andamiaje",
+    "Contrato",
+    "Evaluación de activación",
+    "Empaquetado"
+  ],
+  "no_go": "generar skills sin criterio de activación",
+  "marca": {
+    "nombre": "Meta-Skill",
+    "familia": "herramienta",
+    "paleta": {
+      "familia": "herramienta",
+      "bg": "#0f1419",
+      "surface": "#191e23",
+      "ink": "#e8eef6",
+      "muted": "#969ba2",
+      "accent": "#2eb3ee",
+      "accent2": "#a3e635",
+      "ok": "#15803d",
+      "warn": "#b45309",
+      "danger": "#b91c1c",
+      "contraste_ink_bg": 15.86,
+      "contraste_accent_bg": 7.76,
+      "accent_sobre_bg_ok": true
+    },
+    "narrativa": "Menos ceremonia, más resultado"
+  },
+  "paywall": {
+    "principio": "el binario es libre; se cobra el servicio, no el código",
+    "fases": 4
+  },
+  "medido": {
+    "archivos": 63,
+    "lineas": 6217,
+    "html": 8,
+    "tests": 7,
+    "bytes": 275079,
+    "lenguajes": {
+      "Python": 41.5,
+      "HTML": 25.9,
+      "Markdown": 17.9,
+      "JSON": 6.6,
+      "JavaScript": 4.6,
+      "CSS": 3.5
+    },
+    "fecha": "2026-11-10"
+  },
+  "gate": {
+    "pass": 34,
+    "fail": 0,
+    "skip": 15,
+    "cumplimiento": 100.0,
+    "fallos": []
+  },
+  "ajustes": {
+    "total": 61,
+    "aplicados": 52,
+    "ya_estaban": 9,
+    "fallos": 0
+  },
+  "esfuerzo_dias": 41,
+  "doctor": {
+    "ok": true,
+    "detalle": "38/38 comprobaciones en verde"
+  },
+  "huella": "a5aa72fa40e2907f"
+}

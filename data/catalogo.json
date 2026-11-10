@@ -1,0 +1,31 @@
+{
+  "nombre": "meta-skill",
+  "remoto": "https://github.com/belentani7/meta-skill",
+  "tipo": "web-static",
+  "modelo": "meta-herramienta para crear skills",
+  "publico": "autores de skills",
+  "licencia": "MIT",
+  "medido": {
+    "archivos": 63,
+    "lineas": 6217,
+    "bytes": 275079,
+    "html": 8,
+    "tests": 7
+  },
+  "modulos": [
+    "Andamiaje",
+    "Contrato",
+    "Evaluación de activación",
+    "Empaquetado"
+  ],
+  "paleta": {
+    "bg": "#0f1419",
+    "ink": "#e8eef6",
+    "accent": "#2eb3ee"
+  },
+  "fuente": {
+    "ruta": "repos\\meta-skill",
+    "fecha": "2026-11-10"
+  },
+  "generado_por": "repo-forge"
+}

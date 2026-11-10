@@ -1,4 +1,4 @@
-# Meta-Skill 🇧🇷
+﻿# Meta-Skill 🇧🇷
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-green) ![Python: stdlib only](https://img.shields.io/badge/python-stdlib_only-blue) ![Dependencies: 0](https://img.shields.io/badge/dependencies-0-brightgreen)
 
@@ -88,3 +88,75 @@ El catálogo es una referencia, no facturación: no incorpora necesariamente cac
 IG: [@BELENTANI_](https://instagram.com/belentani_)
 
 Licencia [MIT](LICENSE).
+
+<!-- repo-forge:readme:inicio -->
+## Qué es
+
+**Meta-Skill** — meta-herramienta para crear skills.
+
+Una herramienta que se puede auditar: dice qué hace, lo hace, y deja rastro de lo que hizo.
+
+## Estado medido
+
+| Dato | Valor |
+|---|---|
+| Lenguajes | Python, HTML, Markdown, JSON, JavaScript, CSS |
+| Archivos / líneas | 63 / 6217 |
+| Páginas HTML | 8 |
+| Tests detectados | 7 |
+| Cumplimiento de reglas | 34/34 (100.0%) |
+
+Todo lo anterior se midió en disco el 2026-11-10; no es una estimación.
+
+## Uso
+
+```bash
+python scripts/doctor.py   # verificación sin dependencias
+```
+
+## Estructura
+
+```
+assets/
+brand/
+data/
+docs/
+evaluation-lab/
+governance/
+magic/
+meta-skill/
+plataforma/
+producto/
+```
+
+## Diseño de plataforma
+
+- Andamiaje
+- Contrato
+- Evaluación de activación
+- Empaquetado
+
+La ficha completa —máximo potencial, marca, fases de monetización y recursos— vive en
+[`plataforma/FICHA.md`](plataforma/FICHA.md). Los tokens de marca están en
+[`brand/tokens.css`](brand/tokens.css).
+
+## Reglas del proyecto
+
+Este repositorio sigue el catálogo oficial del ecosistema (`GH-*`, `WEB-*`, `ACC-*`,
+`SEO-*`, `COH-*`, `DEV-*`). El gate se ejecuta con:
+
+```bash
+python scripts/doctor.py
+```
+
+## Licencia
+
+MIT. Ver [`LICENSE`](LICENSE).
+<!-- repo-forge:readme:fin -->
+<!-- repo-forge:readme:fin -->
+<!-- repo-forge:readme:fin -->
+<!-- repo-forge:readme:fin -->
+
+## Producto
+
+Oferta, precio y cobro: [`producto/OFERTA.md`](producto/OFERTA.md) · [`producto/precios.json`](producto/precios.json) · [`producto/landing.html`](producto/landing.html)

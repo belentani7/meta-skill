@@ -1,0 +1,23 @@
+{
+  "moneda": "EUR",
+  "iva": "21% no incluido",
+  "estado": "propuesta",
+  "actualizado": "2026-11-10",
+  "planes": [
+    {
+      "nombre": "Abierto",
+      "precio": 0,
+      "unidad": "acceso",
+      "incluye": "Meta-herramienta abierta para crear skills",
+      "compromiso": "sin registro"
+    },
+    {
+      "nombre": "Patrocinio",
+      "precio": 500,
+      "unidad": "mes",
+      "incluye": "Marca visible y cohorte patrocinada",
+      "compromiso": "factura con IVA"
+    }
+  ],
+  "nota": "Precios de salida sin validar. No se cobra nada en línea todavía: no hay pasarela configurada."
+}
