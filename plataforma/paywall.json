@@ -1,0 +1,44 @@
+{
+  "principio": "el binario es libre; se cobra el servicio, no el código",
+  "quien_paga": "equipos que necesitan soporte, integración o alojamiento",
+  "fases": [
+    {
+      "fase": 1,
+      "nombre": "Local",
+      "gratis": "todo el software",
+      "pago": "nada",
+      "gate": "ninguno",
+      "metrica": "instalaciones",
+      "por_que": "MIT es la puerta"
+    },
+    {
+      "fase": 2,
+      "nombre": "Equipo",
+      "gratis": "uso individual",
+      "pago": "política compartida y auditoría",
+      "gate": "funciones de equipo",
+      "metrica": "equipos",
+      "por_que": "el valor está en el gobierno común"
+    },
+    {
+      "fase": 3,
+      "nombre": "Alojado",
+      "gratis": "autoalojado",
+      "pago": "servicio gestionado",
+      "gate": "nada del núcleo",
+      "metrica": "MRR",
+      "por_que": "se cobra comodidad, no capacidad"
+    },
+    {
+      "fase": 4,
+      "nombre": "Soporte",
+      "gratis": "software",
+      "pago": "SLA y acompañamiento",
+      "gate": "nada",
+      "metrica": "retención",
+      "por_que": "quien necesita garantía la paga"
+    }
+  ],
+  "regla_dura": "ninguna capacidad del núcleo se reserva a un plan",
+  "generado_por": "repo-forge"
+}

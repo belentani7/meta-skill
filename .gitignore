@@ -71,3 +71,10 @@ secrets.json
 .npmrc
 .pypirc
 .user_env
+
+# repo-forge
+.next/
+__pycache__/
+*.pyc
+.venv/
+*.log

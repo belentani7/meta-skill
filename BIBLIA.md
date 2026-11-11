@@ -51,3 +51,51 @@ Proveer valor a través de tecnología moderna, código mantenible y experiencia
 - Monorepo o repositorio independiente según el producto
 - Despliegue por copia de archivos (cero build) salvo que se especifique lo contrario
 - Working trees respetados: no se sobrescriben cambios sin restaurar desde HEAD
+
+<!-- repo-forge:biblia:inicio -->
+# BIBLIA.md — meta-skill
+
+Doctrina del producto del repositorio `meta-skill` del ecosistema belentani7.
+
+## Visión
+
+el compilador de skills: de una idea a una skill con contrato, pruebas y evaluación de activación
+
+## Misión
+
+Una herramienta que se puede auditar: dice qué hace, lo hace, y deja rastro de lo que hizo.
+
+## Público
+
+autores de skills
+
+## Stack
+
+sitio estático publicable tal cual · Python, HTML, Markdown, JSON, JavaScript, CSS
+
+## Módulos que la promesa exige
+
+- Andamiaje
+- Contrato
+- Evaluación de activación
+- Empaquetado
+
+## Reglas de desarrollo
+
+- Protocolo spec-first: PRD → SRS → Design Doc → ADR → Plan → Tests.
+- Un cambio, un resultado verificable.
+- Nada se afirma sin ejecución; lo no probado se declara como no probado.
+- Escritura solo con confirmación; nada destructivo.
+- Idioma del producto: español, salvo el público del repositorio.
+- Secreto fuera de disco, logs y manifiestos.
+
+## Lo que este repositorio no va a hacer
+
+generar skills sin criterio de activación
+
+## Convenciones
+
+`type(scope): resumen` — feat, fix, docs, chore, refactor, test, perf.
+
+<!-- repo-forge:biblia -->
+<!-- repo-forge:biblia:fin -->

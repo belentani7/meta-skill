@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta-Skill — diseño de plataforma</title>
+<meta name="description" content="Prototipo autocontenido del diseño de plataforma de Meta-Skill: módulos, paleta y fases de monetización.">
+<style>
+  :root { --bg:#0f1419; --surface:#191e23; --ink:#e8eef6; --muted:#969ba2;
+           --accent:#2eb3ee; --accent2:#a3e635; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+          font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height:1.55; }
+  header { padding: clamp(1.5rem, 5vw, 4rem); border-bottom:1px solid color-mix(in srgb, var(--ink) 12%, transparent); }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 6vw, 3.6rem);
+        margin:0 0 .5rem; line-height:1.05; }
+  .kicker { font-family: ui-monospace, monospace; color:var(--accent); letter-spacing:.14em;
+             text-transform:uppercase; font-size:.78rem; }
+  .lead { color:var(--muted); max-width:60ch; font-size:1.1rem; }
+  main { padding: clamp(1.5rem, 4vw, 3rem); display:grid; gap:2.5rem; }
+  .grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .card { background:var(--surface); border:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+           border-radius:14px; padding:1.2rem; }
+  .card h3 { margin:.2rem 0 .5rem; font-family: Georgia, serif; font-size:1.15rem; }
+  .card p { margin:0; color:var(--muted); font-size:.92rem; }
+  table { border-collapse:collapse; width:100%; font-size:.9rem; }
+  th, td { text-align:left; padding:.6rem .5rem; border-bottom:1px solid color-mix(in srgb, var(--ink) 12%, transparent); }
+  th { font-family: ui-monospace, monospace; font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); }
+  .rule { border-left:3px solid var(--accent2); padding-left:1rem; color:var(--muted); }
+  footer { padding: 2rem clamp(1.5rem,4vw,3rem); color:var(--muted); font-size:.85rem; }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } }
+</style>
+</head>
+<body>
+<header>
+  <p class="kicker">meta-herramienta para crear skills</p>
+  <h1>Meta-Skill</h1>
+  <p class="lead">Una herramienta que se puede auditar: dice qué hace, lo hace, y deja rastro de lo que hizo.</p>
+</header>
+<main>
+  <section aria-labelledby="mods">
+    <h2 id="mods">Módulos que la promesa exige</h2>
+    <div class="grid">
+      <article class="card"><h3>Andamiaje</h3><p>Contrato por escribir; el módulo ya está en el alcance.</p></article>
+      <article class="card"><h3>Contrato</h3><p>Contrato por escribir; el módulo ya está en el alcance.</p></article>
+      <article class="card"><h3>Evaluación de activación</h3><p>Contrato por escribir; el módulo ya está en el alcance.</p></article>
+      <article class="card"><h3>Empaquetado</h3><p>Contrato por escribir; el módulo ya está en el alcance.</p></article>
+    </div>
+  </section>
+  <section aria-labelledby="monet">
+    <h2 id="monet">Fases de monetización</h2>
+    <table>
+      <caption class="rule">Principio: el binario es libre; se cobra el servicio, no el código.</caption>
+      <thead><tr><th>Fase</th><th>Nombre</th><th>Gratis</th><th>Pago</th><th>Qué se bloquea</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Local</td><td>todo el software</td><td>nada</td><td>ninguno</td></tr>
+        <tr><td>2</td><td>Equipo</td><td>uso individual</td><td>política compartida y auditoría</td><td>funciones de equipo</td></tr>
+        <tr><td>3</td><td>Alojado</td><td>autoalojado</td><td>servicio gestionado</td><td>nada del núcleo</td></tr>
+        <tr><td>4</td><td>Soporte</td><td>software</td><td>SLA y acompañamiento</td><td>nada</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section aria-labelledby="brand">
+    <h2 id="brand">Marca</h2>
+    <div class="grid">
+      <article class="card"><h3>Acento</h3><p><code>#2eb3ee</code> · contraste 7.76:1</p></article>
+      <article class="card"><h3>Tinta</h3><p><code>#e8eef6</code> · contraste 15.86:1</p></article>
+      <article class="card"><h3>Tono</h3><p>técnico, sin jerga innecesaria</p></article>
+    </div>
+  </section>
+</main>
+<footer>Prototipo generado por repo-forge. Sin dependencias, sin analítica, sin cookies.</footer>
+</body>
+</html>

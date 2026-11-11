@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Meta-Skill">
+  <rect width="1200" height="630" fill="#0f1419"/>
+  <rect x="48" y="48" width="1104" height="534" rx="24" fill="none" stroke="#2eb3ee" stroke-width="2" opacity="0.45"/>
+  <text x="96" y="300" font-family="Georgia, serif" font-size="86" fill="#e8eef6">Meta-Skill</text>
+  <text x="96" y="372" font-family="system-ui, sans-serif" font-size="34" fill="#969ba2">meta-herramienta para crear skills</text>
+  <rect x="96" y="430" width="120" height="6" fill="#2eb3ee"/>
+  <text x="96" y="520" font-family="ui-monospace, monospace" font-size="24" fill="#2eb3ee">belentani7 · 2026</text>
+</svg>
