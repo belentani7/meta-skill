@@ -88,3 +88,7 @@ El catálogo es una referencia, no facturación: no incorpora necesariamente cac
 IG: [@BELENTANI_](https://instagram.com/belentani_)
 
 Licencia [MIT](LICENSE).
+
+
+## Producto
+Véase `plataforma/OFERTA.md`, `plataforma/precios.json`, `plataforma/ONEPAGER.md`.

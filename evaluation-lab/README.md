@@ -67,3 +67,7 @@ Export one prediction JSONL row per gold case from the router under test, preser
 ## Scope and limitations
 
 This is a small offline measurement tool, not a model, production telemetry system, statistical significance package, or security certification. A well-scoring test set can still be unrepresentative. Review the methodology before using the numbers to make release or cost decisions.
+
+
+## Producto
+Véase `plataforma/OFERTA.md`.
