@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="32" height="32" role="img" aria-label="Meta-Skill">
+  <rect width="120" height="120" rx="26" fill="#0f1419"/>
+  <rect x="8" y="8" width="104" height="104" rx="20" fill="none" stroke="#2eb3ee" stroke-width="2" opacity="0.5"/>
+  <text x="60" y="76" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#e8eef6">MS</text>
+  <circle cx="60" cy="96" r="3" fill="#2eb3ee"/>
+</svg>

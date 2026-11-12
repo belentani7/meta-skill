@@ -4,3 +4,5 @@
 :where(a,button,input):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .copy-status label{display:block;max-width:100%;overflow-wrap:anywhere}
 .copy-fallback{display:block;width:min(100%,34rem);margin-top:.4rem;padding:.65rem .7rem;background:var(--panel);border:1px solid var(--accent);color:var(--ink);font:inherit}
+
+.hero h1,.section-heading h2,.next h2{letter-spacing:-.035em}pre{max-width:100%;overflow:auto;padding:1.25rem;background:var(--panel);border:1px solid var(--line);line-height:1.7}code{font-family:ui-monospace,monospace;font-size:.9rem}p{max-width:70ch}.site-header a,footer a{min-height:44px;display:inline-flex;align-items:center}
