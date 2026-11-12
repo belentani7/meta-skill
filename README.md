@@ -92,3 +92,7 @@ Licencia [MIT](LICENSE).
 
 ## Producto
 Véase `plataforma/OFERTA.md`, `plataforma/precios.json`, `plataforma/ONEPAGER.md`.
+
+## Alcance del producto
+
+Consulta la [ficha de plataforma](plataforma/FICHA.md). Las mediciones antiguas del catálogo son históricas, no una certificación del estado actual.

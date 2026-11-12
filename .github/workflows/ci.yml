@@ -26,7 +26,7 @@ jobs:
       - name: Compilar todo el codigo fuente
         run: python -m compileall -q .
       - name: Tests
-        run: pytest -q
+        run: pytest --import-mode=importlib -q
       - name: Validate model catalog and routing evaluation
         run: |
           python meta-skill/scripts/update_models.py --validate
