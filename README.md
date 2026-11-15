@@ -1,8 +1,8 @@
-# Meta-Skill 🇧🇷
+# Meta-Skill
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-green) ![Python: stdlib only](https://img.shields.io/badge/python-stdlib_only-blue) ![Dependencies: 0](https://img.shields.io/badge/dependencies-0-brightgreen)
 
-> Skill y router local, explicable y sin dependencias para recomendar tareas, modelos y límites de coste.
+> Router local, explicable y sin dependencias para recomendar tareas, modelos y límites de coste en flujos de agentes.
 >
 > Idiomas: [Português (BR)](README.pt-BR.md) · Español
 
@@ -12,13 +12,19 @@ Meta-Skill convierte su índice de tareas y alias en una herramienta que se pued
 
 No ejecuta inferencias ni envía el prompt a un proveedor. Es una recomendación offline, no un proxy ni una garantía de calidad o ahorro. Una tarifa ausente se muestra como **desconocida**, nunca como cero.
 
+## Por qué existe
+
+Los flujos de agentes suelen ocultar cómo se selecciona un modelo o una estrategia. Meta-Skill hace esa decisión visible y comprobable: clasifica una tarea con reglas explícitas, muestra su confianza, se abstiene cuando no tiene evidencia suficiente y nunca convierte una tarifa desconocida en un ahorro inventado.
+
+El objetivo no es prometer que una herramienta es mejor para todo. Es dar a equipos y autores de skills una base local, reproducible y documentada para decidir cuándo automatizar y cuándo revisar.
+
 ### Probar el router
 
-```bash
-python3 meta-skill/scripts/route.py "Build a responsive React component"
-python3 meta-skill/scripts/route.py --runtime claude_code --json "Write pytest tests"
-printf '%s' "Audita esta API por vulnerabilidades OWASP" | python3 meta-skill/scripts/route.py --json
-python3 meta-skill/scripts/route.py --budget 0.10 "Investiga tendencias y cita fuentes"
+```powershell
+python meta-skill/scripts/route.py "Build a responsive React component"
+python meta-skill/scripts/route.py --runtime claude_code --json "Write pytest tests"
+'Audita esta API por vulnerabilidades OWASP' | python meta-skill/scripts/route.py --json
+python meta-skill/scripts/route.py --budget 0.10 "Investiga tendencias y cita fuentes"
 ```
 
 Los términos se normalizan sin distinguir mayúsculas ni acentos, se comparan como palabras/frases completas y las señales compartidas pesan menos. Si no hay coincidencia, el router **no** la inventa ni la convierte en `quick_fix`: marca revisión y usa el tier predeterminado. El umbral y el margen de confianza se configuran en `index.json`.
@@ -39,12 +45,9 @@ El evaluador existente calcula métricas sobre ejemplos etiquetados. Los ejemplo
 
 El directorio [evaluation-lab](evaluation-lab/README.md) añade un harness independiente y sin dependencias para evaluar routers mediante JSONL etiquetado. Informa accuracy, macro-F1, métricas por clase, matriz de confusión, cobertura, accuracy selectiva y abstención; calcula Brier y ECE solo cuando se entregan vectores de probabilidad completos. Rechaza IDs duplicados, predicciones ausentes, clases desconocidas y datos de calibración incompletos.
 
-```bash
-python3 evaluation-lab/evaluate.py \
-  --gold evaluation-lab/fixtures/gold.jsonl \
-  --predictions evaluation-lab/fixtures/predictions.jsonl \
-  --out /tmp/report.json --markdown /tmp/report.md
-python3 -m unittest discover -s evaluation-lab/tests -v
+```powershell
+python evaluation-lab/evaluate.py --gold evaluation-lab/fixtures/gold.jsonl --predictions evaluation-lab/fixtures/predictions.jsonl --out report.json --markdown report.md
+python -m unittest discover -s evaluation-lab/tests -v
 ```
 
 **Importante:** las fixtures son sintéticas y solo demuestran el contrato del evaluador. No son resultados medidos de Meta-Skill ni de ningún modelo. Consulta [la metodología](evaluation-lab/METHODOLOGY.md) antes de usar métricas para decisiones de release.
@@ -70,22 +73,20 @@ El CLI de recomendación se ejecuta aparte con Python 3.11 o posterior y solo bi
 
 ## Actualizar el catálogo de modelos
 
-```bash
-python3 meta-skill/scripts/update_models.py --validate
-python3 meta-skill/scripts/update_models.py --dry-run
-python3 meta-skill/scripts/update_models.py
-python3 meta-skill/scripts/update_models.py --promote-newest
+```powershell
+python meta-skill/scripts/update_models.py --validate
+python meta-skill/scripts/update_models.py --dry-run
+python meta-skill/scripts/update_models.py
+python meta-skill/scripts/update_models.py --promote-newest
 ```
 
 El actualizador lee la lista pública de modelos de OpenRouter, normalmente sin API key; si tu acceso requiere autenticación, usa opcionalmente `OPENROUTER_API_KEY` desde el entorno (nunca se guarda en el índice). **Por defecto no cambia los alias seleccionados**: que un modelo sea nuevo no demuestra que sea mejor. Consulta [el estudio y sus fuentes](docs/ROUTING_RESEARCH.md) antes de interpretar métricas o tendencias.
 
 El catálogo es una referencia, no facturación: no incorpora necesariamente caché, imágenes, reintentos, descuentos, límites del proveedor ni la tarifa real de una CLI.
 
-## Autor
+## Mantenimiento
 
-**BELENTANI**, artista y cantante. Hecho con alma brasileña desde Barcelona.
-
-IG: [@BELENTANI_](https://instagram.com/belentani_)
+Mantenido por Pedro Belentani, AI Product Engineer en Barcelona. El proyecto prioriza herramientas de agentes, automatización y flujos de desarrollo reproducibles.
 
 Licencia [MIT](LICENSE).
 
