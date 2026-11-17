@@ -30,9 +30,13 @@ def inventory(owner, token, limit):
         if token:
             url = f"{API}/user/repos?{urllib.parse.urlencode({'per_page':100,'page':page,'affiliation':'owner','sort':'full_name'})}"
         batch = get(url, token)
-        if token:
-            batch = [r for r in batch if r.get("owner", {}).get("login", "").lower() == owner.lower()]
-        repos.extend(batch)
+        if not isinstance(batch, list):
+            raise ValueError("GitHub repositories response must be a list")
+        # Pagination must use the raw API page size, not the owner-filtered
+        # number; otherwise mixed-owner pages can end the scan too soon.
+        selected = ([r for r in batch if r.get("owner", {}).get("login", "").lower() == owner.lower()]
+                    if token else batch)
+        repos.extend(selected)
         if len(batch) < 100 or (limit and len(repos) >= limit):
             break
         page += 1
