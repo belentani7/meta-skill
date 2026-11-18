@@ -16,13 +16,29 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="canonical" href="https://github.com/belentani7/meta-skill/docs/index.html" />
+<meta property="og:url" content="https://github.com/belentani7/meta-skill/docs/index.html" />
+<meta name="twitter:description" content="Router local sin dependencias para recomendar tareas y modelos. Criterios explícitos, abstención y evaluación reproducible, sin enviar tu prompt a una API." />
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
 <header class="site-header"><a class="brand" href="./">META<span>—</span>SKILL</a><a class="source-link" href="https://github.com/belentani7/meta-skill">Código · MIT</a></header>
 <main id="main">
-<section class="hero" aria-labelledby="title"><p class="eyebrow">ROUTING LOCAL · PYTHON</p><h1 id="title">Una decisión que puedes explicar.</h1><p class="lede">Clasifica una tarea, recomienda un tier y muestra cuándo necesita revisión. Sin enviar tu prompt a un proveedor.</p><div class="actions"><a class="button button-primary" href="#start">Probar en tu equipo</a><button class="button button-secondary" type="button" data-copy-url="https://github.com/belentani7/meta-skill">Copiar repositorio</button></div><p class="copy-status" role="status" aria-live="polite"></p></section>
+<section class="hero" aria-labelledby="title"><p class="eyebrow">ROUTING LOCAL · PYTHON</p><h1 id="title">Una decisión que puedes explicar.</h1><p class="lede">Clasifica una tarea, recomienda un tier y muestra cuándo necesita revisión. Sin enviar tu prompt a un proveedor.</p><div class="actions"><a class="button button-primary" href="#demo">Probar aquí</a><button class="button button-secondary" type="button" data-copy-url="https://github.com/belentani7/meta-skill">Copiar repositorio</button></div><p class="copy-status" role="status" aria-live="polite"></p></section>
 <div class="facts" aria-label="Características"><div><span>EJECUCIÓN</span><strong>Python 3.11+ · biblioteca estándar</strong></div><div><span>PRIVACIDAD</span><strong>Clasificación offline</strong></div><div><span>CRITERIO</span><strong>Se abstiene ante la ambigüedad</strong></div></div>
+<section class="route-lab" id="demo" aria-labelledby="demo-title">
+  <p class="eyebrow">PRUEBA REAL · EN TU NAVEGADOR</p>
+  <h2 id="demo-title">Escribe una tarea. Comprueba cómo se clasifica.</h2>
+  <p>Demostración léxica local basada en las categorías del router. El texto no sale de este dispositivo. No llama a modelos ni calcula precios. La decisión exacta se obtiene con el CLI Python.</p>
+  <form id="route-form">
+    <label for="route-input">Tarea para clasificar</label>
+    <textarea id="route-input" name="task" rows="3" maxlength="3000" required placeholder="Ej.: Audita una API por problemas de seguridad"></textarea>
+    <div class="route-actions"><button class="button button-primary" type="submit">Clasificar localmente</button><button class="button button-secondary" id="route-example" type="button">Usar ejemplo</button></div>
+  </form>
+  <output id="route-output" role="status" aria-live="polite">Aún no has ejecutado ninguna clasificación.</output>
+  <p class="route-note">Las coincidencias son reglas transparentes, no probabilidades de éxito. En casos ambiguos se recomienda revisión humana.</p>
+</section>
 <section class="overview" aria-labelledby="scope"><div class="section-heading"><h2 id="scope">Control antes de inferencia.</h2></div><p>El router compara señales léxicas en español, portugués e inglés con un índice editable. Expone sus coincidencias, recomienda un tier y estima costes únicamente cuando dispone de tarifas aplicables. No ejecuta el modelo ni garantiza calidad o ahorro.</p></section>
 <section class="highlights" aria-labelledby="flow"><div class="section-heading"><h2 id="flow">Del texto a una recomendación.</h2></div><ol><li><span>01</span><p><strong>Clasificar.</strong> Doce arquetipos de tareas con reglas y umbrales inspeccionables.</p></li><li><span>02</span><p><strong>Revisar.</strong> Confianza heurística y abstención; una puntuación no equivale a una probabilidad calibrada.</p></li><li><span>03</span><p><strong>Evaluar.</strong> Harness JSONL para cobertura, macro-F1 y errores por clase sobre datos etiquetados.</p></li></ol></section>
 <section class="next" id="start" aria-labelledby="start-title"><h2 id="start-title">Ejecuta una tarea real.</h2><p>Clona el repositorio y ejecuta el CLI con Python. No requiere instalar paquetes.</p><pre><code>git clone https://github.com/belentani7/meta-skill.git
