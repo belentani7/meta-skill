@@ -1,3 +1,7 @@
+# Generated operating-system and Python metadata
+Desktop.ini
+._*
+
 # Dependencies
 node_modules/
 bower_components/
