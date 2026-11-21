@@ -1,3 +1,6 @@
+# Generated OS metadata, Python bytecode, and HTML reports
+playwright-report/
+
 # Generated operating-system and Python metadata
 Desktop.ini
 ._*
