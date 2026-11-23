@@ -18,6 +18,21 @@ Los flujos de agentes suelen ocultar cómo se selecciona un modelo o una estrate
 
 El objetivo no es prometer que una herramienta es mejor para todo. Es dar a equipos y autores de skills una base local, reproducible y documentada para decidir cuándo automatizar y cuándo revisar.
 
+### Enrutar lotes sin repetir los prompts
+
+El CLI también procesa solicitudes JSONL desde stdin. Cada línea contiene un objeto
+con un campo obligatorio `prompt` y los campos opcionales `runtime` (`generic` o `claude_code`) y `budget_usd`. La respuesta es un JSON por línea con
+el número de línea original y la decisión o el error de validación.
+
+```sh
+printf '%s\n' '{"prompt":"Build a responsive React component"}' '{"prompt":"Fix this typo in the configuration","runtime":"claude_code"}' | python meta-skill/scripts/route.py --batch-jsonl
+```
+
+Los registros erróneos no detienen el resto del lote; la salida devuelve código
+1 si hay solicitudes inválidas. **No se vuelven a imprimir los prompts** ni se
+transmiten a proveedores. Como en el modo individual, la confianza es heurística,
+los precios desconocidos siguen siendo desconocidos y no se ejecuta inferencia.
+
 ### Probar el router
 
 ```powershell
