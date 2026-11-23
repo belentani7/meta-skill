@@ -390,6 +390,43 @@ def _read_prompt(values: list[str], parser: argparse.ArgumentParser) -> str:
     raise AssertionError("argparse.error should exit")
 
 
+
+def route_batch_lines(lines: Any, index: dict[str, Any], *,
+                      default_runtime: str = "generic",
+                      default_budget: float | None = None) -> int:
+    """Stream JSONL route decisions without retaining or echoing private prompts.
+
+    Each input line is an object with prompt and optional runtime / budget_usd.
+    Malformed lines produce structured errors without aborting subsequent tasks.
+    The return value is the number of invalid requests.
+    """
+    errors = 0
+    for number, raw in enumerate(lines, start=1):
+        if not raw.strip():
+            continue
+        try:
+            request = json.loads(raw)
+            if not isinstance(request, dict):
+                raise ValueError("each input line must be a JSON object")
+            if set(request) - {"prompt", "runtime", "budget_usd"}:
+                raise ValueError("unsupported request fields")
+            prompt = request.get("prompt")
+            if not isinstance(prompt, str) or not prompt.strip():
+                raise ValueError("prompt must be a nonempty string")
+            runtime = request.get("runtime", default_runtime)
+            budget = request.get("budget_usd", default_budget)
+            if budget is not None and (isinstance(budget, bool) or not isinstance(budget, (int, float))):
+                raise ValueError("budget_usd must be a finite number or null")
+            decision = route_prompt(prompt, index, runtime=runtime, budget_usd=budget)
+            response = {"line": number, "result": decision}
+        except (json.JSONDecodeError, ValueError, TypeError, OverflowError) as exc:
+            errors += 1
+            response = {"line": number, "error": type(exc).__name__,
+                        "message": str(exc)}
+        print(json.dumps(response, ensure_ascii=False), flush=True)
+    return errors
+
+
 def _print_human(result: dict[str, Any]) -> None:
     print(f"Decision: {result['decision']} ({result['reason']})")
     task = result["task_id"] or result["candidate_task_id"] or "unclassified"
@@ -420,7 +457,23 @@ def main(argv: list[str] | None = None) -> int:
                         help="choose generic or Claude Code model aliases")
     parser.add_argument("--budget", type=float, help="override max request cost in USD")
     parser.add_argument("--json", action="store_true", help="print structured JSON (no prompt text)")
+    parser.add_argument("--batch-jsonl", action="store_true",
+                        help="route JSONL records from stdin; outputs one result per line")
     args = parser.parse_args(argv)
+    if args.batch_jsonl:
+        if args.prompt:
+            parser.error("--batch-jsonl cannot be combined with a positional prompt")
+        if sys.stdin.isatty():
+            parser.error("--batch-jsonl requires JSONL records on stdin")
+        try:
+            index = json.loads(args.index.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            print(f"[meta-skill] error: {exc}", file=sys.stderr)
+            return 2
+        errors = route_batch_lines(sys.stdin, index, default_runtime=args.runtime,
+                                   default_budget=args.budget)
+        return 1 if errors else 0
+
     prompt = _read_prompt(args.prompt, parser)
     try:
         index = json.loads(args.index.read_text(encoding="utf-8"))
